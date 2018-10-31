@@ -13,5 +13,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "0x.js": "file:../../../../../../5th/dex-docs/0xProject/0x-monorepo/packages/0x.js",
+    "@0x/contract-wrappers": "file:../../../../../../5th/dex-docs/0xProject/0x-monorepo/packages/contract-wrappers",
+    "@0x/web3-wrapper": "file:../../../../../../5th/dex-docs/0xProject/0x-monorepo/packages/web3-wrapper",
+    "@0x/contract-addresses": "file:../../../../../../5th/dex-docs/0xProject/0x-monorepo/packages/contract-addresses"
   }
 }

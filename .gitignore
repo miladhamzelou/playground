@@ -1,4 +1,5 @@
 *.lock
 /typescript/node_modules
 /typescript/lib/0x-fill-order.js
-
+/typescript/package-lock.json
+/typescript/lib/
