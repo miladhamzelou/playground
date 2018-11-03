@@ -13,9 +13,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "0x.js": "file:../../../../../../5th/dex-docs/0xProject/0x-monorepo/packages/0x.js",
-    "@0x/contract-wrappers": "file:../../../../../../5th/dex-docs/0xProject/0x-monorepo/packages/contract-wrappers",
-    "@0x/web3-wrapper": "file:../../../../../../5th/dex-docs/0xProject/0x-monorepo/packages/web3-wrapper",
-    "@0x/contract-addresses": "file:../../../../../../5th/dex-docs/0xProject/0x-monorepo/packages/contract-addresses"
+    "@0x/abi-gen-wrappers": "file:~/5th/dex-docs/0xProject/0x-monorepo/packages/abi-gen-wrappers",
+    "@0x/connect": "file:~/5th/dex-docs/0xProject/0x-monorepo/packages/connect",
+    "@0x/contract-addresses": "file:~/5th/dex-docs/0xProject/0x-monorepo/packages/contract-addresses",
+    "@0x/contract-artifacts": "file:~/5th/dex-docs/0xProject/0x-monorepo/packages/contract-artifacts",
+    "@0x/contract-wrappers": "file:~/5th/dex-docs/0xProject/0x-monorepo/packages/contract-wrappers",
+    "@0x/subproviders": "file:~/5th/dex-docs/0xProject/0x-monorepo/packages/subproviders",
+    "@0x/web3-wrapper": "file:~/5th/dex-docs/0xProject/0x-monorepo/packages/web3-wrapper",
+    "0x.js": "file:/Users/urugang/5th/dex-docs/0xProject/0x-monorepo/packages/0x.js"
   }
 }

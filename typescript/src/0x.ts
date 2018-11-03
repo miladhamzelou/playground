@@ -8,4 +8,4 @@ import {
     signatureUtils,
 } from '0x.js';
 import { Web3Wrapper } from '@0x/web3-wrapper';
-//import { getContractAddressesForNetworkOrThrow } from '@0x/contract-addresses';
+import { getContractAddressesForNetworkOrThrow } from '@0x/contract-addresses';
