@@ -3,8 +3,8 @@ package main
 import "time"
 import "fmt"
 
-func main(){
-	
+func main() {
+
 	fmt.Println("time.Now().Location()： ", time.Now().Location())
 
 	fmt.Println("time.Now()： ", time.Now())
@@ -15,7 +15,4 @@ func main(){
 		fmt.Println("time.Now().In(America/New_York)： ", time.Now().In(newyork))
 	}
 
-
-	
 }
-
