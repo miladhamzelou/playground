@@ -144,6 +144,11 @@ class App extends Component {
         <td> : </td>
         <td>{this.state.transactionHash}</td>
         </tr>
+        <tr>
+        <td>Receipt # </td>
+        <td> : </td>
+        <td>{JSON.stringify(this.state.txReceipt)}</td>
+        </tr>
         </tbody>
         </table>
         </grid>
