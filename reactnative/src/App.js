@@ -70,6 +70,10 @@ class App extends Component {
   //ES6 async function
   onClick  = async () => {
     try{
+      console.info('web3.currentProvider: ', web3.currentProvider);
+      console.info('web3.eth.coinbase: ', await web3.eth.getCoinbase());
+      console.info('web3.eth.getNetwork()', await web3.eth.net.getNetworkType());
+
       this.setState({blockNumber:"waiting.."});
       this.setState({gasUsed:"waiting..."});
 
@@ -79,7 +83,7 @@ class App extends Component {
       });
     }
     catch(error){
-      console.log(error);
+      console.log('onClick:', error);
     }
   }
 

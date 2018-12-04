@@ -1,4 +1,4 @@
-package main
+package playground
 
 import (
 	"bufio"
@@ -8,9 +8,10 @@ import (
 	"net/http"
 	"os"
 	"regexp"
+	"testing"
 )
 
-func main() {
+func TestNet(t *testing.T) {
 	urls := []string{
 		"http://www.toutiao.com/i6614608697882575367/?tt_from=weixin&utm_campaign=client_share&wxshare_count=2&from=singlemessage&timestamp=1541278985&app=news_article_lite&utm_source=weixin&iid=47956109968&utm_medium=toutiao_android&group_id=6614608697882575367&pbid=6615894279619495427",
 		"https://www.toutiao.com/i6588744716605456899/?tt_from=weixin&utm_campaign=client_share&wxshare_count=1&timestamp=1541984097&app=news_article_lite&utm_source=weixin&iid=50377168296&utm_medium=toutiao_android&group_id=6588744716605456899",
@@ -72,7 +73,7 @@ func main() {
 							continue
 						}
 						defer resp.Body.Close()
-						file, err := os.Create(fmt.Sprintf("%d-%d-%d.jpeg", index, index1, index2))
+						file, err := os.Create(fmt.Sprintf("/tmp/%d-%d-%d.jpeg", index, index1, index2))
 						bufWriter := bufio.NewWriter(file)
 						bufWriter.ReadFrom(resp.Body)
 						defer file.Close()

@@ -1,9 +1,12 @@
-package main
+package playground
 
-import "time"
-import "fmt"
+import (
+	"fmt"
+	"testing"
+	"time"
+)
 
-func main() {
+func TestTime(t *testing.T) {
 
 	fmt.Println("time.Now().Location()： ", time.Now().Location())
 
