@@ -4,3 +4,7 @@
 /typescript/package-lock.json
 /typescript/lib/
 /reactnative/node_modules/
+/go/cover.out
+/go/signature.der
+/go/user1.key
+/go/user1.pub
