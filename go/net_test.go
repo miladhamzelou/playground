@@ -12,6 +12,8 @@ import (
 )
 
 func TestNet(t *testing.T) {
+	t.Skip("skipping testing in short mode")
+
 	urls := []string{
 		"http://www.toutiao.com/i6614608697882575367/?tt_from=weixin&utm_campaign=client_share&wxshare_count=2&from=singlemessage&timestamp=1541278985&app=news_article_lite&utm_source=weixin&iid=47956109968&utm_medium=toutiao_android&group_id=6614608697882575367&pbid=6615894279619495427",
 		"https://www.toutiao.com/i6588744716605456899/?tt_from=weixin&utm_campaign=client_share&wxshare_count=1&timestamp=1541984097&app=news_article_lite&utm_source=weixin&iid=50377168296&utm_medium=toutiao_android&group_id=6588744716605456899",
