@@ -1,0 +1,85 @@
+version: '2'
+
+services:
+  node1:
+    image: dxsdk/chain:release
+    environment:
+      - TZ=Asia/Shanghai 
+    volumes:
+      - ./node1:/data
+    ports:
+      - "8545:8545"
+    networks:
+      main:
+        aliases:
+          - node1
+    command:
+      - /bin/sh
+      - -c
+      - |
+        /data/startEthermint.sh
+        /data/startTendermint.sh
+        while [ 1 ] ; do sleep 10000; done;
+
+  node2:
+    image: dxsdk/chain:release
+    environment:
+      - TZ=Asia/Shanghai 
+    volumes:
+      - ./node2:/data
+    ports:
+      - "8645:8545"
+    networks:
+      main:
+        aliases:
+          - node2
+    command:
+      - /bin/sh
+      - -c
+      - |
+        /data/startEthermint.sh
+        /data/startTendermint.sh
+        while [ 1 ] ; do sleep 10000; done;
+
+  node3:
+    image: dxsdk/chain:release
+    environment:
+      - TZ=Asia/Shanghai 
+    volumes:
+      - ./node3:/data
+    ports:
+      - "8745:8545"
+    networks:
+      main:
+        aliases:
+          - node3
+    command:
+      - /bin/sh
+      - -c
+      - |
+        /data/startEthermint.sh
+        /data/startTendermint.sh
+        while [ 1 ] ; do sleep 10000; done;
+
+  node4:
+    image: dxsdk/chain:release
+    environment:
+      - TZ=Asia/Shanghai 
+    volumes:
+      - ./node4:/data
+    ports:
+      - "8845:8545"
+    networks:
+      main:
+        aliases:
+          - node4
+    command:
+      - /bin/sh
+      - -c
+      - |
+        /data/startEthermint.sh
+        /data/startTendermint.sh
+        while [ 1 ] ; do sleep 10000; done;
+
+networks:
+  main:

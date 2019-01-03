@@ -1,0 +1,75 @@
+TESTCASE-0.report
+
+
+--------------------START THE TEST!--------------------
+
+(1) START FOUR NODES!
+
+################################################################################
+reset 
+################################################################################
+stopEthermint node1
+################################################################################
+stopTendermint node1
+################################################################################
+reset node1
+################################################################################
+stopEthermint node2
+################################################################################
+stopTendermint node2
+################################################################################
+reset node2
+################################################################################
+stopEthermint node3
+################################################################################
+stopTendermint node3
+################################################################################
+reset node3
+################################################################################
+stopEthermint node4
+################################################################################
+stopTendermint node4
+################################################################################
+config node1
+I[04-28|01:48:43.261] Already initialized                          module=main priv_validator=/Users/urugang/bench/ethermint-playground/native/node1/tendermint/priv_validator.json
+################################################################################
+config node2
+I[04-28|01:48:43.418] Already initialized                          module=main priv_validator=/Users/urugang/bench/ethermint-playground/native/node2/tendermint/priv_validator.json
+################################################################################
+config node3
+I[04-28|01:48:43.569] Already initialized                          module=main priv_validator=/Users/urugang/bench/ethermint-playground/native/node3/tendermint/priv_validator.json
+################################################################################
+config node4
+I[04-28|01:48:43.719] Already initialized                          module=main priv_validator=/Users/urugang/bench/ethermint-playground/native/node4/tendermint/priv_validator.json
+################################################################################
+startTendermint node1
+################################################################################
+startEthermint node1
+################################################################################
+startTendermint node2
+################################################################################
+startEthermint node2
+################################################################################
+startTendermint node3
+################################################################################
+startEthermint node3
+################################################################################
+startTendermint node4
+################################################################################
+startEthermint node4
+urugang          90560   4.8  0.1 558481708  12432 s003  R+    9:48上午   0:00.03 tendermint --home /Users/urugang/bench/ethermint-playground/native/node1/tendermint/ --p2p.seeds  node
+urugang          90572   0.0  0.1 558477668   6240 s003  R+    9:48上午   0:00.02 tendermint --home /Users/urugang/bench/ethermint-playground/native/node4/tendermint/ --p2p.seeds 0.0.0.0:46656 node
+urugang          90568   0.0  0.2 558468036  13580 s003  S+    9:48上午   0:00.04 tendermint --home /Users/urugang/bench/ethermint-playground/native/node3/tendermint/ --p2p.seeds 0.0.0.0:46656 node
+urugang          90564   0.0  0.2 558483396  13692 s003  S+    9:48上午   0:00.04 tendermint --home /Users/urugang/bench/ethermint-playground/native/node2/tendermint/ --p2p.seeds 0.0.0.0:46656 node
+urugang          90566  30.3  0.3 558514596  28588 s003  S+    9:48上午   0:00.12 ethermint --datadir /Users/urugang/bench/ethermint-playground/native/node2 --abci_laddr tcp://0.0.0.0:46758 --tendermint_addr tcp://0.0.0.0:46757 --rpc --rpcapi eth,net,web3,personal,admin --rpcaddr 0.0.0.0 --rpcport 8645 --verbosity 6
+urugang          90562  28.2  0.3 558515644  28824 s003  S+    9:48上午   0:00.12 ethermint --datadir /Users/urugang/bench/ethermint-playground/native/node1 --abci_laddr tcp://0.0.0.0:46658 --tendermint_addr tcp://0.0.0.0:46657 --rpc --rpcapi eth,net,web3,personal,admin --rpcaddr 0.0.0.0 --rpcport 8545 --verbosity 6
+urugang          90574  27.6  0.3 558506928  28596 s003  S+    9:48上午   0:00.12 ethermint --datadir /Users/urugang/bench/ethermint-playground/native/node4 --abci_laddr tcp://0.0.0.0:46958 --tendermint_addr tcp://0.0.0.0:46957 --rpc --rpcapi eth,net,web3,personal,admin --rpcaddr 0.0.0.0 --rpcport 8845 --verbosity 6
+urugang          90570  25.5  0.3 558515120  28972 s003  S+    9:48上午   0:00.12 ethermint --datadir /Users/urugang/bench/ethermint-playground/native/node3 --abci_laddr tcp://0.0.0.0:46858 --tendermint_addr tcp://0.0.0.0:46857 --rpc --rpcapi eth,net,web3,personal,admin --rpcaddr 0.0.0.0 --rpcport 8745 --verbosity 6
+urugang          63346   0.2  0.1 558516172   7172 s001  S     1:41下午   2:11.87 ethermint --datadir ./data --abci_laddr tcp://127.0.0.1:46658 --tendermint_addr tcp://127.0.0.1:46657 --rpc --rpcapi eth,net,web3,personal,admin --rpcaddr 127.0.0.1 --rpcport 8545 --verbosity 6
+0xE48560eFA8DD059202b3d59D7E9e41d20BA001e1
+(2) CHECK HEIGHT GROWTH NORMAL!
+
+Filed to check_height_growth 127.0.0.1 46657 60
+
+check height growth abnormal!
+

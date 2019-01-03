@@ -1,0 +1,21 @@
+{
+  "genesis_time": "0001-01-01T00:00:00Z",
+  "chain_id": "101",
+  "validators": [
+  ],
+  "app_hash": "",
+  "config": {
+    "chainId": 15,
+    "homesteadBlock": 0,
+    "eip155Block": 0,
+    "eip158Block": 0
+  },
+  "nonce": "0xdeadbeefdeadbeef",
+  "timestamp": "0x00",
+  "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "mixhash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "difficulty": "0x40",
+  "gasLimit": "0x8000000",
+  "alloc": {
+  }
+}
