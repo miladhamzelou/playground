@@ -6,10 +6,10 @@ import yaml
 import os
 import logging
 import asyncio
-
+import asynctest
 logging.basicConfig(level=logging.ERROR)
 
-class TelethonTestCase(unittest.TestCase):
+class TelethonTestCase(asynctest.TestCase):
     configFile = "telethon.yaml"
     config = None
 
@@ -38,7 +38,8 @@ class TelethonTestCase(unittest.TestCase):
                         self.download_message(log, message)
                         tasks.append(self.download_media(client, message))
                         min_id = message.id
-                    await asyncio.gather(*tasks)
+                    if len(tasks) > 0 :
+                        await asyncio.gather(*tasks)
                     if min_id == self.config[key]:
                         break
                     self.config[key] = min_id
@@ -77,23 +78,24 @@ class TelethonTestCase(unittest.TestCase):
     async def download_dialogs(self, account, phone):
         api_id = 478514
         api_hash = '6e152cff4b48d83171b509923667ed47'
-        proxy = (socks.SOCKS5, 'localhost', 1080)
-        # proxy = (socks.SOCKS5, 'phobos.public.opennetwork.cc', 1090, False,
-        #          '35316769', 'dN2TTGIm')
+        # proxy = (socks.SOCKS5, 'localhost', 1080)
+        proxy = (socks.SOCKS5, 'phobos.public.opennetwork.cc', 1090, False,
+                 '35316769', 'dN2TTGIm')
         client = TelegramClient(account, api_id, api_hash, proxy=proxy)
         await client.start(max_attempts=1, phone=phone)
-        # tasks = []
         for dialog in await client.get_dialogs():
             await self.download_dialog(account, client, dialog)
+        client.disconnect()
 
-    def test_download_urugang(self):
-        asyncio.run(self.download_dialogs("urugang", "+8613588178587"))
+    async def test_download_urugang(self):
+        await self.download_dialogs("urugang", "+8613588178587")
 
-    def test_download_u(self):
-        asyncio.run(self.download_dialogs("u", "+8613588034774"))
+    async def test_download_u(self):
+        await self.download_dialogs("u", "+8613588034774")
 
-    def test_download_v(self):
-        asyncio.run(self.download_dialogs("v", "+8613732215927"))
+    async def test_download_v(self):
+        await self.download_dialogs("v", "+8613732215927")
 
-    def test_download_w(self):
-        asyncio.run(self.download_dialogs("w", "+8613868136443"))
+    async def test_download_w(self):
+        await self.download_dialogs("w", "+8613868136443")
+        assert(True)
