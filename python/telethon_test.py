@@ -64,6 +64,12 @@ class TelethonTestCase(asynctest.TestCase):
             while [ True ]:
                 file_name = "downloads/" + attr.file_name
                 file_size = 0
+                if attr.file_name == "sticker.webp":
+                    break
+                if attr.file_name == "video.mp4":
+                    break
+                if media.document.mime_type == 'image/png':
+                    file_name += ".png"
                 if os.path.exists(file_name):
                     stat = os.stat(file_name)
                     file_size = stat.st_size
@@ -78,7 +84,7 @@ class TelethonTestCase(asynctest.TestCase):
     async def download_dialogs(self, account, phone):
         api_id = 478514
         api_hash = '6e152cff4b48d83171b509923667ed47'
-        # proxy = (socks.SOCKS5, 'localhost', 1080)
+        # proxy = (socks.SOCKS5, 'localhost', 6153)
         proxy = (socks.SOCKS5, 'phobos.public.opennetwork.cc', 1090, False,
                  '35316769', 'dN2TTGIm')
         client = TelegramClient(account, api_id, api_hash, proxy=proxy)
