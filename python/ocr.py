@@ -1,7 +1,7 @@
 from PIL import Image
 import cv2
 
-# brew install tesseract --all-languages
+# brew install tesseract tesseract-lang
 # convert input.png -resize 400% -type Grayscale input.tif
 # tesseract -l eng input.tif output
 
