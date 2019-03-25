@@ -26,6 +26,18 @@ class StringTestCase(unittest.TestCase):
         with self.assertRaises(TypeError):
             s.split(2)
 
+    def test_concat(self):
+        a, b = 'hello', ' world'
+        c = a+b
+        self.assertTrue(c, 'helloworld')
+        print(a, b)
+        self.assertTrue('hello'' world', 'hello world')
+        print('%s %s' % ('hello', 'world'))
+        print('{}{}'.format('hello', ' world'))
+        print('-'.join(['aa', 'bb', 'cc']))
+        # 如果对性能有较高要求，并且python版本在3.6以上，推荐使用f-string。例如，如下情况f-string可读性比+号要好很多：
+        print(f'{a} {b}')
+
 def suite():
     suite = unittest.TestSuite()
     suite.addTest(StringTestCase())

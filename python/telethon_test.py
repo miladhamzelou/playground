@@ -109,4 +109,3 @@ class TelethonTestCase(asynctest.TestCase):
 
     async def test_download_w(self):
         await self.download_dialogs("w", "+8613868136443")
-        assert(True)

@@ -12,7 +12,6 @@ def generator():
     yield 1
 
 # 3. 异步函数（协程）
-
 async def async_function():
     return 1
 
@@ -26,8 +25,6 @@ def run(coroutine):
         coroutine.send(None)
     except StopIteration as e:
         return e.value
-
-
 
 async def await_coroutine():
     result = await async_function()
@@ -77,3 +74,4 @@ class AsyncTest(unittest.TestCase):
         loop = asyncio.get_event_loop()
         res = loop.run_until_complete(buy_potatos())
         loop.close()
+
