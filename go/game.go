@@ -1,16 +1,15 @@
-package main
+package playground
 
-// GOOS=js GOARCH=wasm go build -o game.wasm game.go
-// curl -o wasm_exec.js https://raw.githubusercontent.com/golang/go/master/misc/wasm/wasm_exec.js
-// go get github.com/PierreZ/goStatic
-// gostatic --path . && firefox http://localhost:8043/game.html
-// firefox ./game.html
+/*
+
+//# GOOS=js GOARCH=wasm go build -o game.wasm game.go
+//# curl -o wasm_exec.js https://raw.githubusercontent.com/golang/go/master/misc/wasm/wasm_exec.js
+//# go get github.com/PierreZ/goStatic
+//# gostatic --path . && firefox http://localhost:8043/game.html
+//# firefox ./game.html
 
 import (
-	// it was either reference pi as 3.14 or import it from here 😅
-
 	"math"
-	// https://golang.org/pkg/syscall/js
 	"syscall/js"
 )
 
@@ -139,3 +138,4 @@ type gameState struct{ laserX, laserY, directionX, directionY, laserSize float64
 func log(args ...interface{}) {
 	window.Get("console").Call("log", args...)
 }
+*/

@@ -7,6 +7,7 @@ import os
 import logging
 import asyncio
 import asynctest
+import pickle
 logging.basicConfig(level=logging.ERROR)
 
 class TelethonTestCase(asynctest.TestCase):
@@ -34,7 +35,7 @@ class TelethonTestCase(asynctest.TestCase):
                 print('dialog[{0}] = {1}'.format(dialog.name, min_id))
                 while True:
                     tasks = []
-                    async for message in client.iter_messages(dialog.entity, limit=200, min_id=min_id, reverse=True):
+                    async for message in client.iter_messages(dialog.entity, limit=1000, min_id=min_id, reverse=True):
                         self.download_message(log, message)
                         tasks.append(self.download_media(client, message))
                         min_id = message.id
@@ -69,7 +70,11 @@ class TelethonTestCase(asynctest.TestCase):
                 if attr.file_name == "video.mp4":
                     break
                 if media.document.mime_type == 'image/png':
-                    file_name += ".png"
+                    if ".png" not in file_name :
+                        file_name += ".png"
+                if media.document.mime_type == 'application/pdf':
+                    if ".pdf" not in file_name :
+                        file_name += ".pdf"
                 if os.path.exists(file_name):
                     stat = os.stat(file_name)
                     file_size = stat.st_size
@@ -84,9 +89,9 @@ class TelethonTestCase(asynctest.TestCase):
     async def download_dialogs(self, account, phone):
         api_id = 478514
         api_hash = '6e152cff4b48d83171b509923667ed47'
-        # proxy = (socks.SOCKS5, 'localhost', 6153)
-        proxy = (socks.SOCKS5, 'phobos.public.opennetwork.cc', 1090, False,
-                 '35316769', 'dN2TTGIm')
+        proxy = (socks.SOCKS5, 'localhost', 6153)
+        # proxy = (socks.SOCKS5, 'phobos.public.opennetwork.cc', 1090, False,
+        #          '35316769', 'dN2TTGIm')
         client = TelegramClient(account, api_id, api_hash, proxy=proxy)
         await client.start(max_attempts=1, phone=phone)
         for dialog in await client.get_dialogs():

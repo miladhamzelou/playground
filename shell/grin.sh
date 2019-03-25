@@ -4,7 +4,7 @@ BIN=~/playground/bin
 CONFIG=~/playground/config
 workspace=~/playground
 password="123"
-network="--floonet"
+network="--usernet"
 
 ################################################################################
 clean_server(){
@@ -37,8 +37,8 @@ clean_wallet() {
     cd ${workspace}
 
     pkill -9 grin
-    rm grin-wallet.toml
-    rm grin-wallet.log
+    rm -f grin-wallet.toml
+    rm -f grin-wallet.log
     rm -rf wallet_data
 }
 
@@ -46,11 +46,11 @@ init_wallet() {
     cd ${workspace}
 
     mkdir wallet_data
-    cat > /tmp/init_wallet.exp <<'EOF'
+    cat > /tmp/init_wallet.exp <<EOF
 set grin     [lindex $argv 0]
 set network  [lindex $argv 1]
 set password [lindex $argv 2]
-
+output $grin, $network
 
 spawn $grin $network init -h
 expect -re "File .*grin-wallet.toml configured and created"

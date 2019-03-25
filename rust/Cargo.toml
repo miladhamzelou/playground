@@ -1,0 +1,42 @@
+[package]
+name = "rust"
+version = "0.1.0"
+authors = ["urugang <urugang@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+hyper = "0.12"
+pretty_env_logger = "*"
+prettytable-rs = "*"
+chrono = "*"
+log = "*"
+log4rs = "*"
+backtrace = "*"
+memmap = "*"
+scoped_threadpool = "*"
+[[bin]]
+name = "prettytable"
+path = "src/prettytable.rs"
+
+[[bin]]
+name = "pretty_env_logger"
+path = "src/pretty_env_logger.rs"
+
+[[bin]]
+name = "log4rs"
+path = "src/log4rs.rs"
+
+[[bin]]
+name = "hyper"
+path = "src/hyper.rs"
+
+[[bin]]
+name = "backtrace"
+path = "src/backtrace.rs"
+
+[[bin]]
+name = "memmap"
+path = "src/memmap.rs"
+[[bin]]
+name = "scoped_threadpool"
+path = "src/scoped_threadpool.rs"
