@@ -38,7 +38,7 @@ fn scan<'a> (mission: &Vec<&'a str>, input_slice: &'a  [u8], pool: &mut Pool,
 
 fn main() {
     let f = File::open("./scanme.txt").unwrap();
-    let l = f.metadata().unwrap().len() as usize;
+    let _l = f.metadata().unwrap().len() as usize;
     let mmap = unsafe { Mmap::map(&f).unwrap() };
     let mission = vec!["T0", "T1", "T2", "T3"];
     let n_threads = mission.len();
@@ -57,7 +57,7 @@ fn main() {
     let mut pool = Pool::new(n_threads as u32); // no threads
 
     for i in 0..4 {
-        let input = unsafe {&mmap[10*i..10*(i+1)]};
+        let input = &mmap[10*i..10*(i+1)];
         scan(&mission, &input, &mut pool, &tx);
     }
 
